@@ -18,9 +18,9 @@ object DataStore {
         notes = NoteDatabase(context)
     }
 
-//    fun execute(runnable: Runnable) {
-//        EXEC.execute(runnable)
-//    }
+    fun execute(runnable: Runnable) {
+        execute { runnable.run() }
+    }
 
     fun execute(fn: () -> Unit) {
         doAsync { fn() }
